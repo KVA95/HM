@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Привет Мир!</title>
+	<script src="jquery-2.2.3.min.js"></script> <!-- Подключение библиотеки jquery -->
+  </head>
+  <body>
+	<form action="/" method="POST" name=”forma1”>
+		<input type="text" name="fio">
+		<input type="checkbox" name="accept[]">
+		<input type="text" name="city">
+		<input type="checkbox" name="accept[]">
+	</form>
+	<script>
+	$("input[name=city]").next().prop('checked', true); //выбор чекбокса, идущего после текстового поля "city" и изменение его параметра
+	</script>
+   <div id=”data”></div>
+  <body>
+ </html>

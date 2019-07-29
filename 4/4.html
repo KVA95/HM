@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Привет Мир!</title>
+	<script src="jquery-2.2.3.min.js"></script> <!-- Подключение библиотеки jquery -->
+  </head>
+  <body>
+	<form action="/" method="POST" name="forma1">
+		<input type="text" name="fio">
+		<input type="checkbox" name="accept[]">
+		<input type="text" name="city">
+		<input type="checkbox" name="accept[]">
+		<input type="button" id="btn" value="Отправить" /> <!-- Добавление кнопки отправки запроса -->
+	</form>
+	<script>
+	
+    $("#btn").click( //выполнение по нажатию кнопки
+		function(){ //функция передачи формы
+		var msg   = $("form[name='forma1']").serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'request.php',
+          data: msg,
+          success: function(data) {
+            $('#data').html(data);
+          },
+          error:  function(xhr, str){ //проверка на ошибки
+	    alert('Возникла ошибка: ' + xhr.responseCode);
+          }
+        });
+			}
+		);
+		
+	</script>
+   <div id="data"></div>
+  <body>
+ </html>
